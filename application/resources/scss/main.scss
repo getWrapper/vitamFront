@@ -1,0 +1,508 @@
+/* 
+Custom CSS for...
+'Modern Business' HTML Theme by Start Bootstrap
+All Start Bootstrap themes are licensed under Apache 2.0. 
+For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap.com!
+*/
+
+/*
+Roboto Medium @font-face
+*/
+@font-face {
+  font-family: Roboto;
+  src: local("Roboto-Medium"),
+       url(../fonts/Roboto-Medium.ttf);
+  font-weight: medium;
+}
+
+/*
+Roboto @font-face
+*/
+@font-face {
+  font-family: Roboto;
+  src: local("Roboto"),
+       url(../fonts/Roboto-Light.ttf);
+  font-weight: normal;
+}
+
+/* Global Styles */
+html, body, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, p, span {
+	font-family: Roboto, Arial, "Helvetica Neue",sans-serif;
+	font-weight: normal;
+	font-size: 14px;
+}
+
+h1 {
+	font-size: 32px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 18px;
+}
+
+form label {
+	font-size: 16px;
+	font-weight: normal;
+}
+
+html, body {
+	height: 100%;
+}
+
+th span {
+	font-weight: bold;
+}
+
+.navbar-default, .navbar-collapse.in {
+	background-color: #007dc6;
+	border-radius: 0;
+	z-index: 1;
+	margin: 0;
+}
+
+@media (min-width: 768px) {
+	.navbar .container .navbar-brand {
+		margin-left: -15px;
+	}
+}
+
+.navbar-brand {
+	font-size: 20px;
+    line-height: 34px;
+	font-family: Roboto-Medium, Arial, "Helvetica Neue",sans-serif;
+	font-weight: medium;
+}
+
+.navbar-brand-user-data {
+	font-size: 15px;
+    line-height: 34px;
+	font-family: Roboto-Medium, Arial, "Helvetica Neue",sans-serif;
+	font-weight: medium;
+}
+
+.guardar {
+	padding-left: 5px;
+    float: right;
+    width: 170px;
+    margin: 10px 0 0;
+    padding: 0;
+}
+
+.bs-footer {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    margin-top: 60px;
+    color: #777;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+}
+
+.bs-footer {
+    text-align: left;
+}
+
+.bs-footer p {
+    margin-bottom: 0;
+}
+
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
+}
+
+.clear {
+	clear: both;
+}
+
+.table-icon span {
+	margin-left: 20px;
+}
+
+.table-icon span.editar {
+	color: #003896;
+}
+
+.table-icon span.eliminar {
+	color: #cc0000;
+}
+
+.table-icon span.activo {
+	color: #337321;
+}
+
+.table-icon span:before {
+	cursor: pointer;
+}
+
+.table-icon span:hover:before {
+	box-shadow: 0 3px 2px -2px #CCCCCC;
+}
+
+.title h2 {
+	box-shadow: 0 3px 2px -2px #CCCCCC;
+    margin: 20px 0 20px;
+    padding: 0 0 7px;
+}
+
+span.size-small {
+	font-size: 1.4em;
+}
+
+span.size-medium {
+	font-size: 1.8em;
+}
+
+span.size-large {
+	font-size: 2.5em;
+}
+
+span.size-xlarge {
+	font-size: 4.0em;
+}
+
+.hasError {
+	color: red;
+}
+
+.alert.ng-leave {
+	opacity: 1;
+	transition: opacity 1.5s ease-out;
+}
+
+.alert.ng-leave-active {
+	opacity: 0;
+}
+
+.agregar {
+	margin: 15px 0 0;
+}
+
+.cantPaginas {
+	margin: 15px 0 0;
+}
+
+.paginaNoEncontrada {
+	text-align: center;
+}
+
+.paginaNoEncontrada {
+	color: #BBBBBB;
+}
+.paginaNoEncontrada img {
+	width: 400px;
+}
+
+header {
+	height: 64px;
+}
+.mainMenuContainer, .navbar-collapse.in.mainMenuContainer {
+	min-height: 50px;
+	background-color: #004c91;
+}
+
+.mainMenu {
+	text-align: left;
+}
+
+.mainMenu .collapse {
+	min-height: 50px;
+	margin-left: -30px;
+}
+
+.mainMenu .navbar-nav li:hover, .mainMenu .navbar-nav li:hover a, .nav>li>a:hover, .mainMenu .navbar-nav li:hover a,
+.mainMenu .navbar-nav li:focus, .mainMenu .navbar-nav li a:focus, .mainMenu .navbar-nav a {
+	background-color: transparent;
+}
+
+.mainMenu .navbar-nav a, .mainMenu .navbar-nav a .caret  {
+	color: #ffffff;
+	border-top-color: #ffffff;
+    border-bottom-color: #ffffff;
+    text-shadow: 3px 1px 3px rgba(150, 150, 150, 1);
+}
+
+.mainMenu .navbar-nav li a.menuText:hover {
+	color: #ffc220;
+}
+
+.mainMenu .navbar-nav li a.menuCaret:hover, .mainMenu .navbar-nav li a.menuCaret:hover .caret {
+	border-top-color: #ffc220;
+    border-bottom-color: #ffc220;
+    cursor: pointer;
+    color: #ffc220;
+}
+
+@media (min-width: 768px) {
+	.navbar-nav {
+		margin-left: -15px;
+	}
+}
+
+@media (min-width: 768px) {
+	.container.resized {
+	    width: 97%;
+	}
+}
+
+.cantPaginas label {
+	font-size: 14px;
+}
+
+.bs-footer p {
+	font-size: 12px;
+}
+
+.table>tbody>tr>td {
+	vertical-align: middle;
+}
+
+md-input-container {
+	margin: 0;
+}
+
+md-input-container label {
+	margin: 0;
+}
+
+md-input-container input.md-input, md-input-container textarea.md-input {
+    margin-top: -5px;
+}
+
+.required {
+	color: #cc0000;
+	margin: 0 0 0 3px;
+}
+
+.table.table-striped {
+	clear: both;
+}
+
+md-input-container label.ng-binding {
+	position: static;
+}
+
+.flex {
+	background: transparent none;
+}
+
+.layout-row {
+	box-shadow: none;
+}
+
+.tableSearchHeader .md-errors-spacer {
+	display: none;
+}
+
+.ng-hide:not(.ng-hide-animate) {
+	display: none !important;
+}
+
+/* Login styles */
+.login .selectContainer {
+	padding: 0 0 20px 0;
+}
+
+.login md-input-container input.md-input {
+	margin: 0;
+}
+
+.text-data-user {
+	font-size: 15px !important;
+}
+
+.icon-signout:before {
+	cursor: pointer;
+}
+
+.navbar .container .navbar-brand.text-data-user:hover {
+	color: #FFFFFF;
+}
+
+.main-header {
+	min-width: 480px;
+    width: 100%;
+}
+
+.right-header {
+	float: right;
+}
+
+.navbar-default .main-header .navbar-toggle {
+	margin-top: 15px;
+}
+
+.navbar-default .main-header .navbar-toggle:hover .icon-bar {
+	background-color: #FFFFFF;
+}
+
+.navbar .container .navbar-brand.signout {
+    padding: 0;
+    margin: 18px 10px 0px 0px;
+}
+
+.mainMenu .navbar-nav li a.menuText, .mainMenu .navbar-nav li span.menuText {
+	padding-right: 2px;
+    padding-left: 10px;
+    float: left;
+}
+
+.mainMenu .navbar-nav li a.menuCaret {
+	padding-left: 5px;
+    float: left;
+    padding-right: 10px;
+}
+
+.navbar {
+	margin: 0;
+}
+
+.navbar-nav>li>.dropdown-menu {
+	background: #78b9e7;
+}
+
+.submenu2 li a {
+	margin-left: 15px;
+}
+
+.submenu2 li a:hover {
+	color: #004c91;
+}
+
+.submenu2 .size-small {
+    margin-right: 10px;
+}
+.close span {
+    font-size: 22px;
+    color: black;
+    font-weight: bold;
+}
+
+.nameNoHome {
+    padding-right: 8px; 
+}
+
+@media (max-width: 768px) {
+    .text-data-user {
+        display: none;
+    }
+    
+    .mainMenu .navbar-nav li a.menuText, .mainMenu .navbar-nav li span.menuText {
+        float: none;
+	    padding-top: 5px;
+	    padding-bottom: 5px;
+	    display: block;
+	    height: 30px;
+    }
+    
+    .mainMenu .navbar-nav li a.menuCaret {
+        display: none;
+    }
+    
+    .navbar-nav>li>.dropdown-menu {
+        display: block;
+	    background: transparent;
+	    position: static;
+	    clear: both;
+	    width: 100%;
+	    border: 0 none;
+	    box-shadow: none;
+	    padding-left: 15px;
+	    float: left;
+	}
+	
+	.navbar-nav>li>.dropdown-menu li a:hover {
+	    color: #ffc220;
+	}
+	
+	.navbar-nav .submenu li a {
+	    padding-top: 5px;
+	    padding-bottom: 5px;
+	}
+	
+	.navbar-nav .submenu2 li {
+	    height: 22px;
+	}
+	
+	.navbar-nav .submenu li a:active, .navbar-nav .submenu li a:visited, .navbar-nav .submenu li a:focus {
+	    color: #FFFFFF;
+	}
+	
+	.navbar-nav .submenu2 li a {
+	    padding-top: 0;
+	    padding-bottom: 0;
+	}
+	
+	.dropdown {
+	    clear: both;
+	}
+	
+	.mainMenu .navbar-nav li a.menuCaret.noHome {
+	    display: block;
+	}
+	
+	.mainMenu .navbar-nav li a.menuCaret:hover {
+	    color: #FFFFFF;
+	    cursor: default;
+	}
+	
+	.mainMenu .navbar-nav li a.menuCaret .caret {
+	    display: none;
+	}
+	
+	.navbar-nav .open .dropdown-menu>li>a {
+	    padding: 5px 15px;
+	}
+	
+	#openContextualInformation {
+	    display: none;
+	}
+}
+
+.archetypeVersion {
+	display: none;
+}
+
+#flagsContainer {
+	width: 300px;
+    float: right;
+    margin: 16px 10px 0 0;
+}
+
+#flagsContainer ul {
+	width: 100%;
+	height: 32px;
+	padding: 0;
+	margin: 0;
+}
+
+#flagsContainer ul li {
+	width: 32px;
+	height: 32px;
+	float: left;
+	list-style-type: none;
+	margin: 0 7px;
+	cursor: pointer;
+}
+
+.select2-search {
+	display: none;
+}
+
+.selectize-control.single>.selectize-input>input, .selectize-control>.selectize-dropdown {
+	background-color: #FFFFFF;
+}
+
+.selectize-input span.ng-binding {
+	display: none;
+}
+
+#flagsContainer .ui-select-match span:nth-child(2) {
+	float: right;
+}

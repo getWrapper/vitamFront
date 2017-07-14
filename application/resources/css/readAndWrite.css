@@ -1,0 +1,5 @@
+.readOnly {
+  display: none; }
+
+.readAndWrite {
+  display: inline-grid; }

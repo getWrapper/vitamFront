@@ -1,0 +1,25 @@
+<div class="mainMenuContainer collapse navbar-collapse" id="navbar-collapse" ng-controller="MenuController" ng-show="session.showMenu">
+    <nav class="navbar">
+	    <div class="container mainMenu dropdown">
+	        <!-- Collect the nav links, forms, and other content for toggling -->
+	        <ul class="nav navbar-nav">
+	            <li class="dropdown" ng-class="getClass('{{menu.Name}}', '{{menu.NavigationPath}}')" ng-repeat="menu in session.menus">
+	                <a class="menuText" href="{{menu.NavigationPath}}" ng-show="menu.ChildItems.length == undefined">{{menu.Name | translate}}</a>
+	                <a class="dropdown-toggle menuCaret noHome" data-toggle="dropdown" ng-show="menu.ChildItems.length > 0">
+	                    <span ng-show="menu.ChildItems.length > 0" class="nameNoHome">{{menu.Name | translate}}</span><span class="caret"></span>
+	                </a>
+	                <ul class="nav nav-bar submenu dropdown-menu" ng-show="menu.ChildItems.length > 0">
+	                    <li ng-class="getClass('{{submenu.Name}}', '{{submenu.NavigationPath}}')" ng-repeat="submenu in menu.ChildItems"><a href="{{submenu.NavigationPath}}">{{submenu.Name | translate}}</a>
+		                    <ul class="nav nav-bar submenu2" ng-show="submenu.ChildItems.length > 0">
+		                        <li ng-class="getClass('{{submenu2.Name}}', '{{submenu2.NavigationPath}}')" ng-repeat="submenu2 in submenu.ChildItems"><a href="{{submenu2.NavigationPath}}"><span class="icon-angle-right size-small"></span>{{submenu2.Name | translate}}</a></li>
+		                    </ul>
+	                    </li>
+	                </ul>
+	            </li>
+	        </ul>
+	        <div id="openContextualInformation" ng-controller="contextualInformationHelpIconController" ng-show="session.showMenu">
+			    <img src="app/commons/directives/contextualInformation/resources/img/help.png" alt="{{'msg.contextualInformation.title' | translate}}" tooltips tooltip-template="{{'msg.contextualInformation.help.button.title' | translate}}" tooltip-side="left"/>
+			</div>
+	    </div>
+    </nav>
+</div>

@@ -1,0 +1,28 @@
+{
+  "name": "walmart-component-library",
+  "version": "1.0.6",
+  "main": "index",
+  "format": "cjs",
+  "publishConfig": {
+    "registry": "https://npme.walmart.com/"
+  },
+  "peerDependencies": {
+    "angular": "^1.4.7",
+    "angular-animate": "^1.4.7",
+    "angular-aria": "^1.4.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gecgithub01.walmart.com/arobin3/ProjectWithNoCodeUsedOnlyForAuth.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "material",
+    "browser",
+    "client-side"
+  ],
+  "bugs": {
+    "url": "https://tracker.wal-mart.com/projects/USELCPT/issues"
+  }
+}

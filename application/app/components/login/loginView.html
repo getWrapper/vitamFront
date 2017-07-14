@@ -1,0 +1,38 @@
+<div class="col-sm-6 col-sm-offset-3" ng-init="init()">
+    <h2>{{'msg.login.form.title' | translate}}</h2>
+	<div class="alert alert-info">
+    	{{'msg.login.form.instructions' | translate}}
+    </div>
+    <flash-message>
+        <div class="my-flash"></div>
+    </flash-message>
+    <form name="loginForm" class="form-horizontal login" role="form" ng-submit="login(loginForm.$valid)" novalidate>
+        <md-input-container class="md-block selectContainer">
+            <label>{{'msg.login.form.domain' | translate}}</label>
+            <md-select name="domain" ng-model="domain" required ng-change="updateDomain()">
+                <md-option ng-value="dom.NetBiosName" ng-repeat="dom in domainItemResult">{{dom.NetBiosName}}</md-option>
+            </md-select>
+            <div class="errors" ng-messages="loginForm.domain.$error" ng-if="loginForm.$dirty">
+                <div ng-message="required">{{'msg.login.form.domain.required' | translate}}</div>
+            </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label for="username">{{'msg.login.form.username' | translate}}</label>
+            <input type="text" name="username" ng-model="username" required />
+            <div ng-messages="loginForm.username.$error">
+                <div ng-message="required">{{'msg.login.form.username.required' | translate}}</div>
+            </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label for="password">{{'msg.login.form.password' | translate}}</label>
+            <input type="password" name="password" ng-model="password" required />
+            <div ng-messages="loginForm.password.$error">
+                <div ng-message="required">{{'msg.login.form.password.required' | translate}}</div>
+            </div>
+        </md-input-container>
+        <div layout="row" layout-align="right center">
+			<button type="submit" class="btn btn-alternate" ng-disabled="loginForm.$invalid">{{'msg.login.button.login' | translate}}</button>					
+		</div>
+        <div ng-if="error" class="alert alert-danger">{{error}}</div>
+    </form>
+</div>

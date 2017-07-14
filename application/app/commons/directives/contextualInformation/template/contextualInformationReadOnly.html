@@ -1,0 +1,19 @@
+<md-dialog aria-label="{{'msg.contextualInformation.title' | translate}}" ng-cloak>
+	<form>
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+				<h2>{{'msg.contextualInformation.title' | translate}}</h2>
+			</div>
+		</md-toolbar>
+		<md-dialog-content>
+			<div class="md-dialog-content contextualInformation">
+			    <div class="help-icon">
+			        <img src="resources/img/help.png" alt="{{fieldName}}" />
+			    </div>
+				<h3 class="title">{{fieldName}}</h3>
+				<div class="description" ng-bind-html="getContextualInformation()">
+				</div>
+			</div>
+		</md-dialog-content>
+	</form>
+</md-dialog>

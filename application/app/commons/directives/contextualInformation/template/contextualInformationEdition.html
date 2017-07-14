@@ -1,0 +1,33 @@
+<md-dialog aria-label="{{'msg.contextualInformation.title' | translate}}" ng-cloak>
+	<form name="contextualInformationForm" role="form" ng-submit="saveContextualInformation(contextualInformationForm.$valid)" novalidate>
+		<md-toolbar>
+		    <button type="button" class="closeModal" ng-click="closeDialog()"><img src="app/commons/directives/contextualInformation/resources/img/close-icon.png" alt="Close"/></button>
+			<div class="md-toolbar-tools">
+				<h2>{{'msg.contextualInformation.title' | translate}}</h2>
+			</div>
+		</md-toolbar>
+		<md-dialog-content>
+			<div class="md-dialog-content contextualInformationDescContainer">
+			    <div class="help-icon">
+			        <img src="app/commons/directives/contextualInformation/resources/img/help.png" alt="{{fieldName}}" />
+			    </div>
+				<h3 class="title">{{fieldName}}</h3>
+				<md-switch class="updateContextualInformation" ng-model="showUpdate" aria-label="{{msg.contextualInformation.showUpdate}}">
+				    {{'msg.contextualInformation.showUpdate' | translate}}
+				</md-switch>
+				<div class="description" ng-bind-html="getContextualInformation()" ng-hide="showUpdate">
+				</div>
+				<div class="wysiwygContainer" ng-show="showUpdate">
+					<wysiwyg-edit content="contextualInformation" config="editorConfig" class="clear">
+					</wysiwyg-edit>
+					<div class="saveContextualInformation">
+						<button type="button" class="btn btn-primary" ng-click="cancelContextualInformationEdition()">{{'msg.common.button.cancel' |
+							translate}}</button>
+						<button type="submit" class="btn btn-alternate" ng-disabled="contextualInformationForm.$invalid">{{'msg.common.button.save'
+							| translate}}</button>
+					</div>
+				</div>
+			</div>
+		</md-dialog-content>
+	</form>
+</md-dialog>

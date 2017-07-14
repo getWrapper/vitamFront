@@ -1,0 +1,21 @@
+{
+  "msg.vitamedica.consulta.title": "Consulta Datos de Elegibilidad del Paciente",
+  "msg.vitamedica.consulta.serviciosPendientes": "Servicios pendientes por atender: ",
+  "msg.vitamedica.consulta.atender": "Atender",
+  "msg.vitamedica.consulta.busquedaAvanzada": "Búsqueda Avanzada",
+  "msg.vitamedica.consulta.codigo.mmck": "Identificador de Paciente",
+  "msg.vitamedica.consulta.nombres.paciente": "Nombre(s) del paciente",
+  "msg.vitamedica.consulta.numero.apellido.paterno": "Apellido Paterno del Paciente",
+  "msg.vitamedica.consulta.numero.apellido.materno": "Apellido Materno del Paciente",
+  "msg.vitamedica.consulta.fecha.emisión": "Fecha emisión",
+  "msg.vitamedica.consulta.estatus": "Estatus",
+  "msg.vitamedica.consulta.paciente.telefono": "Teléfono del Paciente ",
+  "msg.vitamedica.consulta.numero.elegibilidad": "Numero de Elegibilidad",
+  "msg.vitamedica.consulta.buscar":"Buscar",
+  "msg.vitamedica.consulta.tabla.mmck":"Identificador de Paciente",
+  "msg.vitamedica.consulta.tabla.numeroTelefonico":"Número telefónico",
+  "msg.vitamedica.consulta.tabla.usuario":"Usuario",
+  "msg.vitamedica.consulta.tabla.acciones":"Acciones",
+  "msg.vitamedica.consulta.tabla.apellido.paterno": "Apellido Paterno",
+  "msg.vitamedica.consulta.tabla.apellido.materno": "Apellido Materno"
+}

@@ -1,0 +1,40 @@
+<div class="container">
+	<div class="title">
+		<h2>{{'msg.formExample.form.title' | translate}}</h2>
+	</div>
+	<flash-message>
+	<div class="my-flash"></div>
+	</flash-message>
+	<div class="container-fluid">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h4 class="panel-title">{{'msg.formExample.form.formTitle' | translate}}</h4>
+			</div>
+			<div class="panel-body">
+				<form name="formExampleForm" class="form-horizontal include-ci" role="form" ng-submit="save(formExampleForm.$valid)" novalidate>
+					<div layout-gt-lg="row">
+						<md-input-container class="md-block">
+							<label>{{'msg.formExample.form.code' | translate}}<span class="required">{{'msg.required' | translate}}</span>
+							</label> <input md-maxlength="20" maxlength="20" required name="code" ng-model="form.code" required>
+							<div ng-messages="formExampleForm.code.$error">
+								<div ng-message="required">{{'msg.formExample.form.code.required' | translate}}</div>
+								<div ng-message="maxlength">{{'msg.formExample.form.code.required' | translate}}</div>
+							</div>
+						</md-input-container>
+						<md-input-container class="md-block">
+						    <label>{{'msg.formExample.form.description' | translate}}<span class="required">{{'msg.required' | translate}}</span></label>
+							<textarea md-maxlength="150" ng-model="form.description" name="description" rows="5" required></textarea>
+							<div ng-messages for="formExampleForm.description.$error">
+								<div ng-message when="required">{{'msg.formExample.form.description.required' | translate}}</div>
+							</div>
+						</md-input-container>
+					</div>
+					<div class="col-lg-offset-10 col-lg-2 guardar">
+						<button type="button" class="btn btn-primary" ng-click="cancel()">{{'msg.common.button.cancel' | translate}}</button>
+						<button type="submit" class="btn btn-alternate" ng-disabled="formExampleForm.$invalid">{{'msg.common.button.save' | translate}}</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

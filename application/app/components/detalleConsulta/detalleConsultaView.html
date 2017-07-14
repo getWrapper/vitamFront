@@ -1,0 +1,207 @@
+<div class="container" ng-cloak>
+<div class="container-fluid">
+	<h2 class="include-ci">{{'msg.vitamedica.detalle.datosPaciente' | translate}}</h2>
+		<div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-xs>
+			  <md-label>{{'msg.vitamedica.detalle.codigo.mmck' | translate}}: </md-label>
+			  <md-label>{{receta.mmck_code}}</md-label>
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs>
+			  <md-label>{{'msg.vitamedica.detalle.nombrePaciente' | translate}}: </md-label>
+			  <md-label>Tenoch García Gonzalez</md-label>
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs>
+			  <md-label>{{'msg.vitamedica.detalle.numeroTelefonico' | translate}}: </md-label>
+			  <md-label>{{receta.phone_number}}</md-label>
+          </md-input-container>
+        </div>
+		<div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-xs>
+			  <md-label>{{'msg.vitamedica.detalle.numero.elegibilidad' | translate}}: </md-label>
+			  <md-label>12587455</md-label>
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs>
+			  <md-label>{{'msg.vitamedica.detalle.tipoEmpleado' | translate}}: </md-label>
+			  <md-label>Empleado</md-label>
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs>
+			  <md-label>{{'msg.vitamedica.detalle.tipoTelefono' | translate}}: </md-label>
+			  <md-label>Movil</md-label>
+          </md-input-container>
+        </div>
+	<div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-xs>
+			  <md-label>{{'msg.vitamedica.detalle.empleado.estatus' | translate}}: </md-label>
+			  <md-label>Jubilado</md-label>
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs>
+			  <md-label>{{'msg.vitamedica.detalle.fecha.emision' | translate}}: </md-label>
+			  <md-label>24/11/2017</md-label>
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs></md-input-container>
+        </div>
+	
+	<h2 class="include-ci">{{'msg.vitamedica.detalle.datos.entrega' | translate}}</h2>
+    <div>
+      <form name="userForm">
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-xs>
+            <label class="tableHeader">{{'msg.vitamedica.detalle.datos.calle' | translate}}</label>
+			<input type="text" ng-model="domicilio.calle" />
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs>
+            <label class="tableHeader">{{'msg.vitamedica.detalle.datos.numeroExt' | translate}}</label>
+			<input type="text" ng-model="domicilio.numExt" />
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs>
+            <label class="tableHeader">{{'msg.vitamedica.detalle.datos.numeroInt' | translate}}</label>
+			<input type="text" ng-model="domicilio.numInt" />
+          </md-input-container>
+        </div>
+		<div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-xs>
+            <label class="tableHeader">{{'msg.vitamedica.detalle.datos.Estado' | translate}}</label>
+			<input type="text" ng-model="domicilio.Estado" />
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs>
+            <label class="tableHeader">{{'msg.vitamedica.detalle.datos.municipio' | translate}}</label>
+			<input type="text" ng-model="domicilio.municipio" />
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs>
+            <label class="tableHeader">{{'msg.vitamedica.detalle.datos.colonia' | translate}}</label>
+			<input type="text" ng-model="domicilio.colonia" />
+          </md-input-container>
+        </div>
+		<div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-xs>
+            <label class="tableHeader">{{'msg.vitamedica.detalle.datos.cp' | translate}}</label>
+			<input type="text" ng-model="domicilio.cp" />
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs>
+          <label>{{'msg.vitamedica.detalle.datos.tienda' | translate}}</label>
+          <md-select ng-model="domicilio.entrega">
+            <md-option><em>None</em></md-option>
+            <md-option ng-repeat="state in paciente.estatus" ng-value="state.abbrev" ng-disabled="$index === 1">
+              {{tienda.abbrev}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs align="right">
+			  <button class="btn btn-secondary" ng-click="actualizarDomicilio(domicilio)">{{'msg.vitamedica.detalle.datos.actualizar' | translate}}</button>
+		  </md-input-container>
+        </div>
+      </form>
+    </div>
+  </md-content>
+  <table class="table table-striped">
+			<thead>
+				<tr>
+					<th>
+						<md-checkbox ng-checked="isChecked()"
+                         md-indeterminate="isIndeterminate()"
+                         ng-click="toggleAll()"></md-checkbox>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.detalle.tabla.folio.receta' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.detalle.tabla.codigo.ean' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.detalle.tabla.medic.desc' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.detalle.tabla.medic.cant' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.detalle.tabla.medic.cant.toma' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.detalle.tabla.medic.periodicidad' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.detalle.tabla.medic.duracion' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.detalle.tabla.hora.recepcion' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.detalle.tabla.estatus' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.detalle.tabla.tipo.entrega' | translate}}</label>
+						</md-input-container>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr dir-paginate="data in detalleConsulta|filter:search|itemsPerPage:paginator.itemsPerPage.value">
+					<td>
+						<md-checkbox md-no-link class="md-primary" ng-checked="exists(data, selected)"  ng-click="toggle(data, selected)"></md-checkbox>
+					</td>
+					<td align="center">{{data.prescription_id}}</td>
+					<td align="center">{{data.ean_code}}</td>
+					<td align="center">{{data.description}}</td>
+					<td align="center">{{data.qty_prod_deliver}}</td>
+					<td align="center">{{data.quantity_dose}}</td>
+					<td align="center">{{data.periodicity}}</td>
+					<td align="center">{{data.treatment_duration}}</td>
+					<td align="center">{{data.hora}}</td>
+					<td align="center">{{data.cat_trx}}</td>
+					<td align="center">
+						<md-input-container class="md-block tableSearchHeader" align="center">
+         					<md-select ng-model="tipoEntrega" class="md-no-underline" required>
+           					<md-option value="0">{{'msg.vitamedica.detalle.tabla.tipo.domicilio' | translate}}</md-option>
+							<md-option value="1">{{'msg.vitamedica.detalle.tabla.tipo.tienda'| translate}}</md-option>
+          					</md-select>
+						</md-input-container>
+					</td>
+					
+				</tr>
+			</tbody>
+		</table>
+		<div flex="100">
+      <h2 class="md-title">Selected Items</h2>
+      <code style="display: block; padding: 8px;">{{selected | json}}</code>
+    </div>
+		<dir-pagination-controls class="left" max-size="itemsPerPage.value" direction-links="true" boundary-links="true">
+		</dir-pagination-controls>
+		<div layout-gt-md="row">
+			<md-input-container class="md-block" flex-gt-xs align="right"></md-input-container>
+			<md-input-container class="md-block" flex-gt-xs align="right"></md-input-container>
+			 <md-input-container class="md-block" flex-gt-xs align="right">
+			  <button class="btn btn-secondary" ng-click="entregado()">{{'msg.vitamedica.detalle.boton.entregado' | translate}}</button>
+		  </md-input-container>
+		   <md-input-container class="md-block" flex-gt-xs align="right">
+			  <button class="btn btn-secondary" ng-click="devuelto()">{{'msg.vitamedica.detalle.boton.devuelto' | translate}}</button>
+		  </md-input-container>
+		   <md-input-container class="md-block" flex-gt-xs align="right">
+			  <button class="btn btn-secondary" ng-click="cancelado()">{{'msg.vitamedica.detalle.boton.cancelado' | translate}}</button>
+		  </md-input-container>
+		   <md-input-container class="md-block" flex-gt-xs align="right" flex="200">
+			  <button class="btn btn-secondary" ng-click="salir()">   {{'msg.vitamedica.detalle.boton.salir' | translate}}   </button>
+		  </md-input-container>
+		</div>
+
+</div>
+</div>

@@ -1,0 +1,23 @@
+<md-fab-toolbar md-open="typeContextualInfo.isOpen" count="typeContextualInfo.count" md-direction="{{typeContextualInfo.direction}}">
+    <md-fab-trigger class="align-with-text">
+        <md-button aria-label="menu" class="md-fab md-primary config-icon">
+            <md-icon md-svg-src="app/commons/directives/contextualInformation/config/template/ic_settings_48px.svg"></md-icon>
+        </md-button>
+    </md-fab-trigger>
+    <md-toolbar>
+        <md-fab-actions class="md-toolbar-tools">
+            <md-button aria-label="comment" class="md-icon-button" title="Tooltip">
+                <span class="icon-comment size-medium active" ng-click="setType('tooltip')" ng-if="config.type == 'tooltip'" role="button" tabindex="0">
+                </span>
+                <span class="icon-comment size-medium" ng-click="setType('tooltip')" ng-if="config.type != 'tooltip'" role="button" tabindex="0">
+                </span>
+            </md-button>
+            <md-button aria-label="label" class="md-icon-button"  title="Dividir pantalla">
+                <span class="icon-columns size-medium active" ng-click="setType('right-panel')" ng-if="config.type == 'right-panel'" role="button" tabindex="0">
+                </span>
+                <span class="icon-columns size-medium" ng-click="setType('right-panel')" ng-if="config.type != 'right-panel'" role="button" tabindex="0">
+                </span>
+            </md-button>
+        </md-fab-actions>
+    </md-toolbar>
+</md-fab-toolbar>

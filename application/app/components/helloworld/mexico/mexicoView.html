@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="title">
+        <h2>{{'msg.mexico.form.title' | translate}}</h2>
+    </div>
+    <flash-message>
+        <div class="my-flash"></div>
+    </flash-message>
+	<div class="container-fluid">
+		<div id="panelAgregarModificarmexicoes" class="panel panel-primary" ng-show="addUpdate">
+			<div class="panel-heading">
+				<h4 class="panel-title" ng-if="form.isAdd === true">
+					{{'msg.mexico.form.addTitle' | translate}}</h4>
+				<h4 class="panel-title" ng-if="form.isAdd !== true">
+					{{'msg.mexico.form.updateTitle' | translate}}</h4>
+			</div>
+			<div class="panel-body">
+				<form name="mexicoForm" class="form-horizontal" role="form" ng-submit="save(mexicoForm.$valid)" novalidate>
+					<div layout-gt-lg="row">
+						<md-input-container class="md-block">
+							<label>{{'msg.mexico.form.code' | translate}}<span class="required">{{'msg.required' | translate}}</span></label>
+							<input md-maxlength="6" minlength="6" maxlength="6" required name="code" ng-model="form.code" required>
+							<div ng-messages="mexicoForm.code.$error">
+								<div ng-message="required">{{'msg.mexico.form.size.code' | translate}}</div>
+								<div ng-message="minlength">{{'msg.mexico.form.size.code' | translate}}</div>
+								<div ng-message="maxlength">{{'msg.mexico.form.size.code' | translate}}</div>
+							</div>
+						</md-input-container>
+						<md-input-container class="md-block">
+							<label>{{'msg.mexico.form.description' | translate}}<span class="required">{{'msg.required' | translate}}</span></label>
+							<textarea md-maxlength="150" ng-model="form.description" name="description" rows="5" required></textarea>
+							<div ng-messages for="mexicoForm.description.$error">
+								<div ng-message when="required">
+									{{'msg.mexico.form.required.description' | translate}}
+								</div>
+							</div>
+						</md-input-container>
+					</div>
+					<div class="col-lg-offset-10 col-lg-2 guardar">
+						<button type="button" class="btn btn-primary" ng-click="cancel()">{{'msg.common.button.cancel' |
+							translate}}</button>
+						<button type="submit" class="btn btn-alternate" ng-disabled="mexicoForm.$invalid">{{'msg.common.button.save'
+							| translate}}</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="right cantPaginas">
+			<form class="form-inline">
+				<div class="form-group">
+					<label>{{'msg.common.table.showing' | translate}}</label>
+					<select ng-model='paginator.itemsPerPage.value' ng-options='option.value as option.name for option in paginator.pageQuantity'></select>
+					<label>{{'msg.common.table.pages' | translate}}</label>
+				</div>
+			</form>
+		</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>
+						<md-input-container class="md-block tableSearchHeader">
+							<label class="tableHeader">{{'msg.mexico.table.id' | translate}}</label>
+							<input type="text" ng-model="search.id" ng-keyup="findByFilter()" />
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader">
+							<label class="tableHeader">{{'msg.mexico.table.code' | translate}}</label>
+							<input type="text" ng-model="search.code" ng-keyup="findByFilter()" />
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader">
+							<label class="tableHeader">{{'msg.mexico.table.description' | translate}}</label>
+							<input type="text" ng-model="search.description" ng-keyup="findByFilter()" />
+						</md-input-container>
+					</th>
+					<th>{{'msg.mexico.table.update' | translate}}</th>
+					<th>{{'msg.mexico.table.active' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr dir-paginate="mexico in mexico|filter:search|itemsPerPage:paginator.itemsPerPage.value">
+					<td>{{mexico.id}}</td>
+					<td>{{mexico.code}}</td>
+					<td>{{mexico.description}}</td>
+					<td class="table-icon"><span class="editar icon-pencil size-medium" ng-click="showUpdate(mexico)"></span></td>
+					<td class="table-icon"><span class="activo icon-ok size-medium" ng-show="mexico.active" ng-click="remove(mexico)"></span> <span class="eliminar icon-remove size-medium"
+							ng-hide="mexico.active" ng-click="activate(mexico)"></span></td>
+				</tr>
+			</tbody>
+		</table>
+		<dir-pagination-controls class="left" max-size="itemsPerPage.value" direction-links="true" boundary-links="true">
+		</dir-pagination-controls>
+		<div class="agregar right">
+			<button class="btn btn-secondary" ng-click="showAdd()">{{'msg.common.button.add'
+				| translate}}</button>
+		</div>
+	</div>
+</div>

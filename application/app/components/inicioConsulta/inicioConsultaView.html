@@ -1,0 +1,141 @@
+<div class="container" ng-cloak>
+<div class="container-fluid">
+	<h2 class="include-ci">{{'msg.vitamedica.consulta.title' | translate}}</h2>
+<md-content layout-padding>
+	
+		<div layout-gt-sm="row">
+			<md-input-container class="md-block" flex-gt-xs></md-input-container>
+			<md-input-container class="md-block" flex-gt-xs></md-input-container>
+			<md-input-container class="md-block" flex-gt-sm align="center">
+				<label>{{'msg.vitamedica.consulta.serviciosPendientes' | translate}} 8</label>
+			 </md-input-container>
+		  <button class="btn btn-secondary" ng-click="atenderConsulta()">{{'msg.vitamedica.consulta.atender' | translate}}</button>
+		</div>
+	<h2 class="include-ci">{{'msg.vitamedica.consulta.busquedaAvanzada' | translate}}</h2>
+    <div>
+      <form name="userForm">
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-xs>
+            <label class="tableHeader">{{'msg.vitamedica.consulta.codigo.mmck' | translate}}</label>
+			<input type="text" ng-model="paciente.mmck" ng-keyup="findByFilter()" />
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs>
+            <label class="tableHeader">{{'msg.vitamedica.consulta.numero.elegibilidad' | translate}}</label>
+			<input type="text" ng-model="paciente.elegibilidad" ng-keyup="findByFilter()" />
+          </md-input-container>
+		  <md-datepicker-container class="md-block" flex-gt-xs>
+           <md-datepicker ng-model="paciente.fecha" md-placeholder="{{'msg.vitamedica.consulta.fecha.emisión' | translate}}" md-open-on-focus></md-datepicker>
+		  </md-datepicker-container>
+        </div>
+		 
+		<div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-xs>
+            <label class="tableHeader">{{'msg.vitamedica.consulta.nombres.paciente' | translate}}</label>
+			<input type="text" ng-model="paciente.nombre" ng-keyup="findByFilter()" />
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs>
+            <label class="tableHeader">{{'msg.vitamedica.consulta.numero.apellido.paterno' | translate}}</label>
+			<input type="text" ng-model="paciente.aPaterno" ng-keyup="findByFilter()" />
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs>
+        	<label class="tableHeader">{{'msg.vitamedica.consulta.numero.apellido.materno' | translate}}</label>
+			<input type="text" ng-model="paciente.aMaterno" ng-keyup="findByFilter()" />
+          </md-input-container>	
+        </div>
+		<div layout-gt-sm="row">
+			<md-input-container class="md-block" flex-gt-xs>
+          <label>{{'msg.vitamedica.consulta.estatus' | translate}}</label>
+          <md-select ng-model="paciente.estatus">
+            <md-option><em>None</em></md-option>
+            <md-option ng-repeat="state in paciente.estatus" ng-value="state.abbrev" ng-disabled="$index === 1">
+              {{state.abbrev}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs>
+            <label class="tableHeader">{{'msg.vitamedica.consulta.paciente.telefono' | translate}}</label>
+			<input type="text" ng-model="paciente.telefono" ng-pattern="/^[0-9]*$/" />
+          </md-input-container>
+		  <md-input-container class="md-block" flex-gt-xs align="right">
+		  <button class="btn btn-secondary" ng-click="buscarRecetas(paciente)">{{'msg.vitamedica.consulta.buscar' | translate}}</button>
+		  </md-input-container>
+        </div>
+      </form>
+    </div>
+  </md-content>
+  <table class="table table-striped">
+			<thead ng-show="encabezados">
+				<tr>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.consulta.tabla.mmck' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.consulta.numero.elegibilidad' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.consulta.nombres.paciente' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.consulta.tabla.apellido.paterno' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.consulta.tabla.apellido.materno' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.consulta.tabla.numeroTelefonico' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.consulta.fecha.emisión' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.consulta.estatus' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.consulta.tabla.usuario' | translate}}</label>
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader" align="center">
+							<label class="tableHeader">{{'msg.vitamedica.consulta.tabla.acciones' | translate}}</label>
+						</md-input-container>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr dir-paginate="data in inicioConsulta|filter:search|itemsPerPage:paginator.itemsPerPage.value">
+					<td align="center">{{data.mmck_code}}</td>
+					<td align="center">{{data.eligibility_number}}</td>
+					<td align="center">{{data.patient_name}}</td>
+					<td align="center">{{data.patient_surname}}</td>
+					<td align="center">{{data.patient_lastname}}</td>
+					<td align="center">{{data.phone_number}}</td>
+					<td align="center">{{data.register_date}}</td>
+					<td align="center">{{data.trx_name}}</td>
+					<td align="center">{{data.user_attend}}</td>
+					<td class="table-icon"><span class="editar icon-search  size-medium"  ng-click="irDetalleConsulta(data)"></span></td>
+					
+				</tr>
+			</tbody>
+		</table>
+		<dir-pagination-controls class="left" max-size="itemsPerPage.value" direction-links="true" boundary-links="true" ng-show="encabezados">
+		</dir-pagination-controls>
+</div>
+</div>

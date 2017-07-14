@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="title">
+        <h2>{{'msg.vendor.form.title' | translate}}</h2>
+    </div>
+    <flash-message>
+        <div class="my-flash"></div>
+    </flash-message>
+	<div class="container-fluid">
+		<div id="panelAgregarModificarvendores" class="panel panel-primary include-ci" ng-show="addUpdate">
+			<div class="panel-heading">
+				<h4 class="panel-title" ng-if="form.isAdd === true">
+					{{'msg.vendor.form.addTitle' | translate}}</h4>
+				<h4 class="panel-title" ng-if="form.isAdd !== true">
+					{{'msg.vendor.form.updateTitle' | translate}}</h4>
+			</div>
+			<div class="panel-body">
+				<form name="vendorForm" class="form-horizontal" role="form" ng-submit="save(vendorForm.$valid)" novalidate>
+					<div layout-gt-lg="row">
+						<md-input-container class="md-block">
+							<label>{{'msg.vendor.form.code' | translate}}<span class="required">{{'msg.required' | translate}}</span></label>
+							<input md-maxlength="6" minlength="6" maxlength="6" required name="code" ng-model="form.code" required>
+							<div ng-messages="vendorForm.code.$error">
+								<div ng-message="required">{{'msg.vendor.form.size.code' | translate}}</div>
+								<div ng-message="minlength">{{'msg.vendor.form.size.code' | translate}}</div>
+								<div ng-message="maxlength">{{'msg.vendor.form.size.code' | translate}}</div>
+							</div>
+						</md-input-container>
+						<md-input-container class="md-block">
+							<label>{{'msg.vendor.form.description' | translate}}<span class="required">{{'msg.required' | translate}}</span></label>
+							<textarea md-maxlength="150" ng-model="form.description" name="description" rows="5" required></textarea>
+							<div ng-messages for="vendorForm.description.$error">
+								<div ng-message when="required">
+									{{'msg.vendor.form.required.description' | translate}}
+								</div>
+							</div>
+						</md-input-container>
+					</div>
+					<div class="col-lg-offset-10 col-lg-2 guardar">
+						<button type="button" class="btn btn-primary" ng-click="cancel()">{{'msg.common.button.cancel' |
+							translate}}</button>
+						<button type="submit" class="btn btn-alternate" ng-disabled="vendorForm.$invalid">{{'msg.common.button.save'
+							| translate}}</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="right cantPaginas">
+			<form class="form-inline">
+				<div class="form-group">
+					<label>{{'msg.common.table.showing' | translate}}</label>
+					<select ng-model='paginator.itemsPerPage.value' ng-options='option.value as option.name for option in paginator.pageQuantity'></select>
+					<label>{{'msg.common.table.pages' | translate}}</label>
+				</div>
+			</form>
+		</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>
+						<md-input-container class="md-block tableSearchHeader">
+							<label class="tableHeader">{{'msg.vendor.table.id' | translate}}</label>
+							<input type="text" ng-model="search.id" ng-keyup="findByFilter()" />
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader">
+							<label class="tableHeader">{{'msg.vendor.table.code' | translate}}</label>
+							<input type="text" ng-model="search.code" ng-keyup="findByFilter()" />
+						</md-input-container>
+					</th>
+					<th>
+						<md-input-container class="md-block tableSearchHeader">
+							<label class="tableHeader">{{'msg.vendor.table.description' | translate}}</label>
+							<input type="text" ng-model="search.description" ng-keyup="findByFilter()" />
+						</md-input-container>
+					</th>
+					<th>{{'msg.vendor.table.update' | translate}}</th>
+					<th>{{'msg.vendor.table.active' | translate}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr dir-paginate="vendor in vendor|filter:search|itemsPerPage:paginator.itemsPerPage.value">
+					<td>{{vendor.id}}</td>
+					<td>{{vendor.code}}</td>
+					<td>{{vendor.description}}</td>
+					<td class="table-icon"><span class="editar icon-pencil size-medium" ng-click="showUpdate(vendor)"></span></td>
+					<td class="table-icon"><span class="activo icon-ok size-medium" ng-show="vendor.active" ng-click="remove(vendor)"></span> <span class="eliminar icon-remove size-medium"
+							ng-hide="vendor.active" ng-click="activate(vendor)"></span></td>
+				</tr>
+			</tbody>
+		</table>
+		<dir-pagination-controls class="left" max-size="itemsPerPage.value" direction-links="true" boundary-links="true">
+		</dir-pagination-controls>
+		<div class="agregar right">
+			<button class="btn btn-secondary" ng-click="showAdd()">{{'msg.common.button.add'
+				| translate}}</button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+	<!-- Meta-Information -->
+	<title>Vitamedica</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="Arquetipo web para nuevos desarrollos de walmart">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="shortcut icon" href="resources/img/favicon.png">
+
+	<!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
+	<!-- build:css resources/css/bootstrap.min.css -->
+	<link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
+	<!-- endbuild -->
+	<!-- build:css resources/css/walmart-component-library.min.css -->
+	<link rel="stylesheet" href="resources/bower_components/component-library/component-library.min.css"/>
+	<!-- endbuild -->
+    <link rel="stylesheet" href="resources/css/select.css">
+	<link rel="stylesheet" href="resources/css/select2.css">
+	<!-- build:css resources/css/main.min.css -->
+	<link rel="stylesheet" href="resources/css/main.css"/>
+	<!-- endbuild -->
+	<!-- build:css resources/css/application.min.css -->
+	<link rel="stylesheet" href="resources/css/application.css"/>
+	<!-- endbuild -->
+	
+	<link rel="stylesheet" href="app/commons/directives/contextualInformation/resources/css/contextual-information.css"/>
+	<link rel="stylesheet" href="app/commons/directives/contextualInformation/resources/css/wysiwyg.editor.min.css"/>
+	<link rel="stylesheet" href="app/commons/directives/contextualInformation/resources/css/layout-default-latest.css"/>
+	<link rel="stylesheet" href="app/commons/directives/contextualInformation/resources/css/angular-tooltips.min.css"/>
+	<link rel="stylesheet" href="app/commons/directives/contextualInformation/resources/css/v-accordion.min.css"/>
+
+	<!-- Vendor: Angular, followed by our custom Javascripts -->
+	<!-- build:js resources/js/js-libs.min.js -->
+	<script src="resources/js/libs/jquery.min.js"></script>
+	<script src="resources/js/libs/jquery-ui.js"></script>
+	<script src="resources/js/libs/moment.js"></script>
+	<script src="resources/js/libs/bootstrap.min.js"></script>
+	<script src="resources/js/libs/jwt-decode.min.js"></script>
+	<!-- endbuild -->
+
+	<!-- Walmart Component Library requires Angular.js Libraries -->
+	<!--build:js resources/js/angular-libs.min.js -->
+	<script src="resources/bower_components/angular/angular.min.js"></script>
+	<script src="resources/bower_components/angular-animate/angular-animate.min.js"></script>
+	<script src="resources/bower_components/angular-aria/angular-aria.min.js"></script>
+	<script src="resources/bower_components/angular-messages/angular-messages.min.js"></script>
+	
+	<script src="resources/js/libs/ui-bootstrap-tpls-2.1.4.min.js"></script>
+
+	<script src="resources/js/libs/1.5.5/angular-route.min.js"></script>
+	<script src="resources/js/libs/1.5.5/angular-resource.min.js"></script>
+	<script src="resources/js/libs/1.5.5/angular-locale_es-mx.js"></script>
+	<script src="resources/js/libs/1.5.5/angular-translate.min.js"></script>
+	<script src="resources/js/libs/1.5.5/angular-translate-loader-static-files.min.js"></script>
+	<script src="resources/js/libs/1.5.5/angular-sanitize.min.js"></script>
+	<script src="resources/js/libs/1.5.5/angular-flash.min.js"></script>
+	<script src="resources/js/libs/1.5.5/dirPagination.js"></script>
+	<script src="resources/js/libs/1.5.5/angular-ui-router.min.js"></script>
+    <script src="resources/js/libs/1.5.5/ngStorage.min.js"></script>
+    <script src="resources/js/libs/1.5.5/angular-mocks.js"></script>
+	<script src="resources/js/libs/1.5.5/angular-timer-all.min.js"></script>
+	<script src="resources/js/libs/select.js"></script>
+	<!-- endbuild -->
+    
+    <!-- WYSIWYG -->
+    <script src="app/commons/directives/contextualInformation/resources/js/wysiwyg.min.js"></script>
+    
+	<!-- Walmart Component Library -->
+	<!--build:js resources/js/walmart-component-library.min.js -->
+	<script src="resources/bower_components/component-library/component-library.min.js"></script>
+	<!-- endbuild -->
+	
+	<!-- Main module -->
+	<script src="app/app.module.js"></script>
+	
+	<!-- Constants -->
+	<script src="app/constants/loginServiceConstants.js"></script>
+	<script src="app/constants/systemParamConstants.js"></script>
+
+	<!-- Config Modules -->
+	<script src="app/config/app.config.flash-messages.js"></script>
+	<script src="app/config/app.config.translate-app.js"></script>
+	<script src="app/config/app.config.inputmaxlength.js"></script>
+	<script src="app/config/app.config.state-provider.js"></script>
+	
+	<!-- Endpoints -->
+	<script src="app/endpoint/loginEndpoint.js"></script>
+	<!-- to replace - endpoints -->
+	<script src="app/endpoint/helloWorldEndpoint.js"></script>
+	<script src="app/endpoint/mexicoEndpoint.js"></script>
+	<script src="app/endpoint/costaRicaEndpoint.js"></script>
+	<script src="app/endpoint/guatemalaEndpoint.js"></script>
+	<script src="app/endpoint/associateEndpoint.js"></script>
+	<script src="app/endpoint/vendorEndpoint.js"></script>
+	<!-- end to replace - endpoints -->
+	
+	<!-- Util -->
+	<script src="app/commons/util/dateUtil.js"></script>
+	<script src="app/commons/util/arrayUtil.js"></script>
+	
+	<!-- Commons -->
+	<script src="app/commons/services/formUtilService.js"></script>
+	<script src="app/commons/services/paginatorConfigService.js"></script>
+	<script src="app/config/restConfigurationConstants.js"></script>
+	<script src="app/commons/services/sessionControlService.js"></script>
+	<script src="app/commons/services/restService.js"></script>
+	<script src="app/commons/services/restServiceValidator.js"></script>
+	<script src="app/commons/services/catalogUtilService.js"></script>
+	
+	<!-- Common Controllers -->
+	<script src="app/commons/controller/sessionController.js"></script>
+	
+	<!-- Filters -->
+	<script src="app/commons/filters/genericFilters.js"></script>
+	
+	<!-- Contextual Information -->
+	<script src="app/commons/directives/contextualInformation/resources/js/jquery.layout-latest.js"></script>
+	<script src="app/commons/directives/contextualInformation/resources/js/angular-tooltips.min.js"></script>
+	<script src="app/commons/directives/contextualInformation/resources/js/v-accordion.min.js"></script>
+	<script src="app/commons/directives/contextualInformation/endpoint/contextualInformationEndpoint.js"></script>
+	<script src="app/commons/directives/contextualInformation/config/contextualInformationConstants.js"></script>
+	<script src="app/commons/directives/contextualInformation/contextualInformationDirective.js"></script>
+	<script src="app/commons/directives/contextualInformation/contextualInformationService.js"></script>
+	<script src="app/commons/directives/contextualInformation/contextualInformationController.js"></script>
+	<script src="app/commons/directives/contextualInformation/config/configContextualInformationController.js"></script>
+	<script src="app/commons/directives/contextualInformation/rightPanelController.js"></script>
+	<script src="app/commons/directives/contextualInformation/contextualInformationHelpIconController.js"></script>
+	
+	<!-- Service -->
+	<!-- to replace - services -->
+	<script src="app/components/inicioConsulta/inicioConsultaService.js"></script>
+	<script src="app/components/detalleConsulta/detalleConsultaService.js"></script>
+	<script src="app/components/helloworld/helloWorldService.js"></script>
+	<script src="app/components/helloworld/mexico/mexicoService.js"></script>
+	<script src="app/components/helloworld/mexico/associate/associateService.js"></script>
+	<script src="app/components/helloworld/mexico/vendor/vendorService.js"></script>
+	<script src="app/components/helloworld/costaRica/costaRicaService.js"></script>
+	<script src="app/components/helloworld/guatemala/guatemalaService.js"></script>
+	<script src="app/components/goodByeWorld/goodByeWorldService.js"></script>
+	<script src="app/components/formExample/formExampleService.js"></script>
+	<!-- end to replace - services -->
+	<script src="app/components/login/loginService.js"></script>
+	
+	<!-- Controller -->
+	<!-- to replace - controllers -->
+	<script src="app/components/inicioConsulta/inicioConsultaController.js"></script>
+	<script src="app/components/detalleConsulta/detalleConsultaController.js"></script>
+	<script src="app/components/helloworld/helloWorldController.js"></script>
+	<script src="app/components/helloworld/mexico/mexicoController.js"></script>
+	<script src="app/components/helloworld/mexico/associate/associateController.js"></script>
+	<script src="app/components/helloworld/mexico/vendor/vendorController.js"></script>
+	<script src="app/components/helloworld/guatemala/guatemalaController.js"></script>
+	<script src="app/components/helloworld/costaRica/costaRicaController.js"></script>
+	<script src="app/components/goodByeWorld/goodByeWorldController.js"></script>
+	<script src="app/components/formExample/formExampleController.js"></script>
+	<!-- end to replace - controllers -->
+	<script src="app/components/login/loginController.js"></script>
+	<script src="app/components/menu/menuController.js"></script>
+	<script src="app/components/header/headerController.js"></script>
+	<script src="app/components/footer/footerController.js"></script>
+	
+	<script src="app/run/app.run.config.js"></script>
+</head>
+
+<body ng-app="MainApp">
+
+	<!--[if lt IE 7]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+		    your browser</a> to improve your experience.</p>
+		<![endif]-->
+
+	<div class="ui-layout-center">
+		<!-- Our Website Content Goes Here -->
+		<header class="navbar navbar-default">
+			<div ng-include='"app/commons/templates/header.html"'></div>
+		</header>
+		<!--<div ng-include='"app/commons/templates/menu.html"'></div>-->
+		<div class="container">
+			<ui-view></ui-view>
+		</div>
+		<div ng-include='"app/commons/templates/footer.html"'></div>
+		<div
+			ng-include='"app/commons/directives/contextualInformation/contextualInformationContainer.html"'></div>
+	</div>
+	<div class="ui-layout-east" ng-controller="rightPanelController">
+	    <div ng-include='"app/commons/directives/contextualInformation/contextualInformationRightContainer.html"'></div>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+{
+  "msg.contextualInformation.title" : "Información Contextual",
+  "msg.contextualInformation.update" : "Actualizar",
+  "msg.common.button.delete" : "Eliminar",
+  "msg.contextualInformation.showUpdate" : "Actualizar",
+  "msg.contextualInformation.newField" : "Nuevo campo",
+  "msg.contextualInformation.title.help" : "Ayuda",
+  "msg.contextualInformation.title.faq" : "FAQ",
+  "msg.contextualInformation.title.frequentAnswersTitle" : "Preguntas Frecuentes",
+  "msg.contextualInformation.addFaq" : "Agregar Pregunta",
+  "msg.contextualInformation.updateFaq" : "Actualizar Pregunta",
+  "msg.contextualInformation.addQuestion" : "Pregunta",
+  "msg.contextualInformation.addAnswer" : "Respuesta",
+  "msg.contextualInformation.question.required" : "Requerido",
+  "msg.contextualInformation.question.minLength" : "Min. 6 caracteres",
+  "msg.contextualInformation.question.maxLength" : "Max. 100 caracteres",
+  "msg.contextualInformation.answer.required" : "Requerido",
+  "msg.contextualInformation.answer.minLength" : "Min. 6 caracteres",
+  "msg.contextualInformation.answer.maxLength" : "Max. 1000 caracteres",
+  "msg.contextualInformation.delete.faq.title" : "Eliminar Pregunta",
+  "msg.contextualInformation.delete.faq.confirm" : "¿Seguro que desea eliminar la pregunta?",
+  "msg.contextualInformation.help.button.title" : "Mostrar información contextual"
+}

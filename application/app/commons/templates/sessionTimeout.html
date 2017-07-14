@@ -1,0 +1,22 @@
+<md-dialog aria-label="sessionTimeot" ng-cloak ng-controller="SessionController">
+	<form ng-cloak>
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+				<h3>{{'msg.session.expired.dialog.title' | translate}}</h3>
+			</div>
+		</md-toolbar>
+		
+		<md-dialog-content>
+			<div class="md-dialog-content">
+				<h3>{{'msg.session.expired.dialog.question' | translate}}</h3>
+				<timer countdown="60" interval="1000" finish-callback="closeSession()">{{seconds}} {{'msg.session.expired.dialog.second' | translate}}{{secondsS}}</timer>
+			</div>
+		</md-dialog-content>
+		
+		<md-dialog-actions layout="row">
+			<button type="button" class="btn btn-primary" ng-click="continue(); renewToken();">
+				{{'msg.session.expired.dialog.continue' | translate}}
+			</button>
+		</md-dialog-actions>
+	</form>
+</md-dialog>

@@ -1,0 +1,37 @@
+<div id="container" ng-controller="HeaderController">
+	<div class="container" layout="row">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header main-header">
+			<a class="navbar-brand" href="#{{getHomePage()}}">{{'msg.application.mainTitle' | translate}}</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+				aria-expanded="false" ng-show="session.showMenu">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div class="navbar-header right-header" ng-show="session.showMenu">
+				<a class="navbar-brand text-data-user navbar-collapse">{{session.user.displayName}}  - {{ session.user.domain }}</a>
+				<a class="navbar-brand signout">
+				    <span ng-click="logout()" class="activo icon-signout size-small">
+				        <md-tooltip md-direction="bottom">
+				            {{'msg.common.button.logout' | translate}}
+				        </md-tooltip>
+				    </span>
+				</a>
+			</div>
+			<div id="flagsContainer">
+			    <ui-select ng-model="country.selected" on-select="changeLanguage($item)" theme="selectize" ng-disabled="disabled" style="width: 300px;">
+					<ui-select-match placeholder="{{'msg.common.button.language.select' | translate}}">
+						<img ng-src="{{$select.selected.image}}"/>
+						{{$select.selected.name}}
+					</ui-select-match>
+					<ui-select-choices repeat="country in countries | filter: $select.search">
+						<img ng-src="{{country.image}}"/>
+						<span ng-bind-html="country.name | highlight: $select.search"></span>
+					</ui-select-choices>
+				</ui-select>
+			</div>
+		</div>
+	</div>
+</div>

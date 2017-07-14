@@ -1,0 +1,9 @@
+/target/
+*.classpath
+.settings/
+.project
+node_modules/
+dist/
+application/resources/css/application.css
+application/resources/css/main.css
+.vscode/

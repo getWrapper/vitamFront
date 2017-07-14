@@ -1,0 +1,27 @@
+<md-dialog id="deleteFaq" aria-label="{{'msg.contextualInformation.delete.faq.title' | translate}}" ng-cloak>
+	<form name="contextualInformationForm" role="form" ng-submit="deleteContextualInformation()" novalidate>
+		<md-toolbar>
+		    <button type="button" class="closeModal" ng-click="closeDialog()"><img src="app/commons/directives/contextualInformation/resources/img/close-icon.png" alt="Close"/></button>
+			<div class="md-toolbar-tools">
+				<h2>{{'msg.contextualInformation.delete.faq.title' | translate}}</h2>
+			</div>
+		</md-toolbar>
+		<md-dialog-content>
+			<div class="md-dialog-content deleteQuestionConfirmation">
+			    <div class="help-icon">
+			        <img src="app/commons/directives/contextualInformation/resources/img/help.png" alt="{{fieldName}}" />
+			    </div>
+				<h3 class="title">{{'msg.contextualInformation.delete.faq.confirm' | translate}}</h3>
+				<div class="description">
+				    {{questionToDelete}}
+				</div>
+			</div>
+			<div class="col-lg-offset-10 col-lg-2 guardar">
+				<button type="button" class="btn btn-primary" ng-click="cancel()">{{'msg.common.button.cancel' |
+					translate}}</button>
+				<button type="submit" class="btn btn-alternate">{{'msg.common.button.delete'
+					| translate}}</button>
+			</div>
+		</md-dialog-content>
+	</form>
+</md-dialog>

@@ -1,0 +1,108 @@
+<div ng-cloak>
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="{{'msg.contextualInformation.title.help' | translate}}">
+                <md-content class="md-padding" id="pageContextualInformationContainer">
+                    <button type="button" class="closeModal" ng-click="closeRightPanel()"><img src="app/commons/directives/contextualInformation/resources/img/close-icon.png" alt="Close"/></button>
+                    <div class="contextualInformationDescRightContainer">
+                        <div class="help-icon">
+                            <img src="app/commons/directives/contextualInformation/resources/img/help.png" alt="{{fieldName}}" />
+                        </div>
+                        <h3 class="title">
+                            <div id="fieldName"></div>
+                        </h3>
+                        <div id="updatePageInfo" ng-click='showInformation($event)'>
+                            <span class='icon-pencil size-small'></span>
+                            <span class='update'>{{'msg.contextualInformation.update' | translate}}</span>
+                        </div>
+                        <div id="help" class="contextualInformationDescription"></div>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="{{'msg.contextualInformation.title.faq' | translate}}">
+                <md-content class="md-padding" id="frequentAnswerQuestions">
+                    <button type="button" class="closeModal" ng-click="closeRightPanel()"><img src="app/commons/directives/contextualInformation/resources/img/close-icon.png" alt="Close"/></button>
+                    
+                    <div class="help-icon">
+                        <img src="app/commons/directives/contextualInformation/resources/img/help.png" alt="{{fieldName}}" />
+                    </div>
+                    <div class="faqTitle title">
+                        <h3 class="title">{{'msg.contextualInformation.title.frequentAnswersTitle' | translate}}</h3>
+                    </div>
+                    <div id="addFAQ" ng-show="addUpdateFaq">
+                        <form name="contextualInformationForm" class="form-horizontal" role="form" ng-submit="save(contextualInformationForm.$valid)" novalidate>
+                            <div id="addFaqTitle" ng-show="isAddFaq">
+                                <span class='icon-plus size-small'></span><span class="addUpdateFaqTitle">{{'msg.contextualInformation.addFaq' | translate}}</span>
+                            </div>
+                            <div id="updateFaqTitle" ng-hide="isAddFaq">
+                                <span class='icon-pencil size-small'></span><span class="addUpdateFaqTitle">{{'msg.contextualInformation.updateFaq' | translate}}</span>
+                            </div>
+                            <div layout-gt-lg="row" class="clear">
+                                <md-input-container class="md-block">
+                                    <label>{{'msg.contextualInformation.addQuestion' | translate}}<span class="required">{{'msg.required' | translate}}</span></label>
+                                    <input md-maxlength="100" minlength="3" maxlength="100" required name="question" ng-model="faq.question" required />
+                                    <div ng-messages="contextualInformationForm.question.$error">
+                                        <div ng-message="required">{{'msg.contextualInformation.question.required' | translate}}</div>
+                                        <div ng-message="minlength">{{'msg.contextualInformation.question.minLength' | translate}}</div>
+                                        <div ng-message="maxlength">{{'msg.contextualInformation.question.maxLength' | translate}}</div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>{{'msg.contextualInformation.addAnswer' | translate}}<span class="required">{{'msg.required' | translate}}</span></label>
+                                    <textarea md-maxlength="1000" minlength="3" maxlength="1000" required name="answer" ng-model="faq.answer" required></textarea>
+                                    <div ng-messages="contextualInformationForm.answer.$error">
+                                        <div ng-message="required">{{'msg.contextualInformation.answer.required' | translate}}</div>
+                                        <div ng-message="minlength">{{'msg.contextualInformation.answer.minLength' | translate}}</div>
+                                        <div ng-message="maxlength">{{'msg.contextualInformation.answer.maxLength' | translate}}</div>
+                                    </div>
+                                </md-input-container>
+                            </div>
+                            <div class="col-lg-offset-10 col-lg-2 guardar">
+								<button type="button" class="btn btn-primary" ng-click="cancel(); accordion.collapseAll();">{{'msg.common.button.cancel' |
+									translate}}</button>
+								<button type="submit" class="btn btn-alternate" ng-disabled="contextualInformationForm.$invalid" ng-click="accordion.collapseAll()">{{'msg.common.button.save'
+									| translate}}</button>
+							</div>
+                        </form>
+                    </div>
+                    <div class="clear">
+                        <script type="text/ng-template" id="group-template.html">
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h4 class="panel-title" style="color:#fa39c3">
+                                  <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading">
+                                    <span uib-accordion-header ng-class="{'text-muted': isDisabled}">
+                                      {{heading}}
+                                    </span>
+                                  </a>
+                                </h4>
+                              </div>
+                              <div class="panel-collapse collapse" uib-collapse="!isOpen">
+                                <div class="panel-body" style="text-align: right" ng-transclude></div>
+                              </div>
+                            </div>
+                        </script>
+	                    <div id="addContextualInfoButton" ng-click="showAddFaq()" ng-hide="addUpdateFaq">
+	                        <span class='icon-plus size-small'></span><span class="addFaqText">{{'msg.contextualInformation.addFaq' | translate}}</span>
+	                    </div>
+                        <div class="clear"></div>
+                        <v-accordion class="vAccordion--default faqs" control="accordion" ng-hide="addUpdateFaq">
+                            <v-pane id="faq-{{ faq.QuestionId }}" ng-repeat="faq in faqs">
+                                <v-pane-header>
+                                    <span class="questionText">{{ faq.Question }}</span>
+                                    <span class='icon-remove size-small' ng-click="showDeleteFaq(faq)"></span>
+                                    <span class='icon-pencil size-small' ng-click="showUpdateFaq(faq)"></span>
+                                    <div class="clear"></div>
+                                </v-pane-header>
+                                <v-pane-content>
+                                    <span class="orderNumber" ng-hide="true">{{ ::faq.OrderNumber}}</span>
+                                    {{ faq.Answer }}
+                                </v-pane-content>
+                            </v-pane>
+                        </v-accordion>
+                    </div>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>
